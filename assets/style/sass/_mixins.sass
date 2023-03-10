@@ -1,0 +1,21 @@
+
+@mixin hoverBg($color)
+    &:hover
+        background-color: $color
+
+@mixin alignCenter
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+
+@mixin btnReset ($bg, $hoverColor)
+    background: $bg
+    border: none
+    @include hoverBg($hoverColor)
+
+@mixin inputReset ($bg)
+    background: $bg
+    border: none
+    &:focus
+        outline: none

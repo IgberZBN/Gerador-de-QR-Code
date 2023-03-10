@@ -10,16 +10,16 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="content">
-      <form>
-        <label for="inText">Texto:</label>
-        <input type="text" id="inText" placeholder="Pode ser texto ou link" autofocus>
-        <button type="submit" id="btnGen">Gerar QRcode</button>
-      </form>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example" alt="QrCode gerado">
+  <main class="content box">
+    <form class="mb-1 content-form form">
+      <input class="mb-1 box input" id="inQr" type="text" placeholder="Coloque seu link ou texto aqui" autofocus
+        autocomplete="off" spellcheck="false">
+      <button class="mb-1 btn" id="btnQr" type="submit">Gerar QR code</button>
+    </form>
+    <div class="content-qrImage">
+      <img class="img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example" alt="Qr Code gerado">
     </div>
-  </div>
+  </main>
   <script src="assets/js/index.js"></script>
 </body>
 

@@ -1,1 +1,67 @@
+// ! utils
 
+@use 'variables' as va
+@use 'mixins' as mx
+
+// ! reset
+
+*
+  padding: 0
+  margin: 0
+
+body
+  background-color: va.$dark-bg
+
+// ! generic class
+
+  // * margins
+
+.mb-1
+  margin-bottom: 1em
+
+  // * box
+
+.box
+  box-sizing: border-box
+
+// ! styles
+
+.content
+  @include mx.alignCenter
+  width: 92%
+  background: rgba(255,255,255, .3)
+  border-radius: 7px
+  padding: 1em
+
+  &-form
+    text-align: center
+
+    .input
+      @include mx.inputReset(none)
+      display: block
+      width: 100%
+      padding: .5em
+      border-bottom: 2px solid va.$white-light
+      transition: border-bottom-color .2s ease
+      color: va.$white
+
+      &::placeholder
+        color: va.$white-light
+        text-align: center
+
+      &:focus::placeholder
+        color: va.$white
+
+      &:focus
+        border-bottom-color: va.$white
+
+    .btn
+      @include mx.btnReset(va.$green, va.$green-dark)
+      width: 90%
+      padding: .7em
+
+  &-qrImage
+    text-align: center
+
+    .img
+      width: 15em
