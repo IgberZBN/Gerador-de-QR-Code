@@ -10,9 +10,9 @@
     transform: translate(-50%,-50%)
 
 @mixin btnReset ($bg, $hoverColor)
+    @include hoverBg($hoverColor)
     background: $bg
     border: none
-    @include hoverBg($hoverColor)
 
 @mixin inputReset ($bg)
     background: $bg

@@ -46,10 +46,12 @@ body
 
   &-form
     width: min(410px, 100%)
+    align-self: center
     text-align: center
 
     .input
       @include mx.inputReset(none)
+      text-align: center
       font-size: 1em
       display: block
       width: 100%
@@ -60,7 +62,6 @@ body
 
       &::placeholder
         color: va.$white-light
-        text-align: center
 
       &:focus
         border-bottom-color: va.$white
