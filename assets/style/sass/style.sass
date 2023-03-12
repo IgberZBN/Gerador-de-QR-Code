@@ -19,25 +19,38 @@ body
 .mb-1
   margin-bottom: 1em
 
-  // * box
+.mr-1
+  margin-right: 1em
+
+.ml-1
+  margin-left: 1em
+
+  // * box, display
 
 .box
   box-sizing: border-box
+
+.d-f
+  display: flex
+  flex-wrap: wrap
 
 // ! styles
 
 .content
   @include mx.alignCenter
-  width: 92%
+  width: min(800px, 92%)
   background: rgba(255,255,255, .3)
   border-radius: 7px
   padding: 1em
+  justify-content: center
 
   &-form
+    width: min(410px, 100%)
     text-align: center
 
     .input
       @include mx.inputReset(none)
+      font-size: 1em
       display: block
       width: 100%
       padding: .5em
@@ -49,11 +62,11 @@ body
         color: va.$white-light
         text-align: center
 
-      &:focus::placeholder
-        color: va.$white
-
       &:focus
         border-bottom-color: va.$white
+
+      &:focus::placeholder
+        color: va.$white
 
     .btn
       @include mx.btnReset(va.$green, va.$green-dark)
@@ -64,4 +77,4 @@ body
     text-align: center
 
     .img
-      width: 15em
+      width: clamp(15em, 40vw, 20em)
