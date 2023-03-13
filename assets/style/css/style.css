@@ -7,6 +7,10 @@ body {
   background-color: #121212;
 }
 
+.p-1 {
+  padding: 1em;
+}
+
 .mb-1 {
   margin-bottom: 1em;
 }
@@ -19,6 +23,14 @@ body {
   margin-left: 1em;
 }
 
+.br {
+  border-radius: 7px;
+}
+
+.t-center {
+  text-align: center;
+}
+
 .box {
   box-sizing: border-box;
 }
@@ -28,6 +40,26 @@ body {
   flex-wrap: wrap;
 }
 
+.d-n {
+  display: none;
+}
+
+.content-form .input.erro {
+  border-bottom-color: #ff0000;
+}
+
+.erro-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 35%;
+  background-color: #ff0000;
+  text-transform: uppercase;
+  width: min(500px, 70%);
+  margin: 0 auto;
+}
+
 .content {
   position: absolute;
   top: 50%;
@@ -35,19 +67,15 @@ body {
   transform: translate(-50%, -50%);
   width: min(800px, 92%);
   background: rgba(255, 255, 255, 0.3);
-  border-radius: 7px;
-  padding: 1em;
   justify-content: center;
 }
 .content-form {
   width: min(410px, 100%);
   align-self: center;
-  text-align: center;
 }
 .content-form .input {
   background: none;
   border: none;
-  text-align: center;
   font-size: 1em;
   display: block;
   width: 100%;
@@ -64,9 +92,6 @@ body {
 }
 .content-form .input:focus {
   border-bottom-color: rgb(255, 255, 255);
-}
-.content-form .input:focus::placeholder {
-  color: rgb(255, 255, 255);
 }
 .content-form .btn {
   background: #00C896;

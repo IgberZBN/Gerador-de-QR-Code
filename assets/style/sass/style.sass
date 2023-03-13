@@ -14,7 +14,10 @@ body
 
 // ! generic class
 
-  // * margins
+  // * margins, paddings
+
+.p-1
+  padding: 1em
 
 .mb-1
   margin-bottom: 1em
@@ -25,7 +28,13 @@ body
 .ml-1
   margin-left: 1em
 
-  // * box, display
+  // * box, display, text-align, border-radius
+
+.br
+  border-radius: 7px
+
+.t-center
+  text-align: center
 
 .box
   box-sizing: border-box
@@ -34,24 +43,35 @@ body
   display: flex
   flex-wrap: wrap
 
+.d-n
+  display: none
+
+.content-form
+  .input.erro
+    border-bottom-color: va.$erro
+
 // ! styles
+
+.erro-content
+  @include mx.alignCenter
+  top: 35%
+  background-color: va.$erro
+  text-transform: uppercase
+  width: min(500px, 70%)
+  margin: 0 auto
 
 .content
   @include mx.alignCenter
   width: min(800px, 92%)
   background: rgba(255,255,255, .3)
-  border-radius: 7px
-  padding: 1em
   justify-content: center
 
   &-form
     width: min(410px, 100%)
     align-self: center
-    text-align: center
 
     .input
       @include mx.inputReset(none)
-      text-align: center
       font-size: 1em
       display: block
       width: 100%
@@ -65,9 +85,6 @@ body
 
       &:focus
         border-bottom-color: va.$white
-
-      &:focus::placeholder
-        color: va.$white
 
     .btn
       @include mx.btnReset(va.$green, va.$green-dark)
