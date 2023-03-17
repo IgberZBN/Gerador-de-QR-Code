@@ -11,11 +11,13 @@
 
 @mixin btnReset ($bg, $hoverColor)
     @include hoverBg($hoverColor)
+    cursor: pointer
     background: $bg
     border: none
 
 @mixin inputReset ($bg)
     background: $bg
+    cursor: pointer
     border: none
     &:focus
         outline: none

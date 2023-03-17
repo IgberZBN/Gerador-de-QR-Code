@@ -40,27 +40,49 @@ body {
   flex-wrap: wrap;
 }
 
-.d-n {
-  display: none;
+.content-erro.erro {
+  transition: opacity 0s;
+  opacity: 1;
 }
-
-.content-form .input.erro {
+.content-qr input.erro {
   border-bottom-color: #ff0000;
 }
+.content-qr input.succes {
+  border-bottom-color: green;
+}
 
-.erro-content {
+.content-erro {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  top: 35%;
   background-color: #ff0000;
-  text-transform: uppercase;
-  width: min(500px, 70%);
+  color: #EFEBE4;
   margin: 0 auto;
+  width: min(500px, 70%);
+  top: 25%;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 1s ease-out;
 }
 
-.content {
+.dropdown-content {
+  overflow-y: hidden;
+}
+
+.dropdown {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-120%);
+  transition: transform 0.8s;
+  width: 100%;
+}
+
+.dropdown.active {
+  transform: translateY(0);
+}
+
+.content-qr {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -69,12 +91,13 @@ body {
   background: rgba(255, 255, 255, 0.3);
   justify-content: center;
 }
-.content-form {
+.content-qr .form {
   width: min(410px, 100%);
   align-self: center;
 }
-.content-form .input {
+.content-qr .input {
   background: none;
+  cursor: pointer;
   border: none;
   font-size: 1em;
   display: block;
@@ -82,31 +105,87 @@ body {
   padding: 0.5em;
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
   transition: border-bottom-color 0.2s ease;
-  color: rgb(255, 255, 255);
+  color: #EFEBE4;
 }
-.content-form .input:focus {
+.content-qr .input:focus {
   outline: none;
 }
-.content-form .input::placeholder {
+.content-qr .input::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
-.content-form .input:focus {
-  border-bottom-color: rgb(255, 255, 255);
+.content-qr .input:focus {
+  border-bottom-color: #EFEBE4;
 }
-.content-form .btn {
+.content-qr .btn {
+  cursor: pointer;
   background: #00C896;
   border: none;
   width: 90%;
   padding: 0.7em;
 }
-.content-form .btn:hover {
+.content-qr .btn:hover {
   background-color: #009f77;
 }
-.content-qrImage {
+.content-qr .qrImage {
   text-align: center;
 }
-.content-qrImage .img {
+.content-qr .qrImage .img {
   width: clamp(15em, 40vw, 20em);
+}
+
+.btn.dropdownToggle {
+  width: 100%;
+}
+
+.content-color label {
+  display: block;
+}
+.content-color .inColor {
+  background: none;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+}
+.content-color .inColor:focus {
+  outline: none;
+}
+
+.content-size {
+  justify-content: space-between;
+}
+.content-size label {
+  width: 40%;
+}
+.content-size .inSize {
+  width: 40%;
+}
+.content-size p {
+  display: block;
+  width: 20%;
+}
+
+.content-format {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.content-format label {
+  background: #00C896;
+  cursor: pointer;
+  border: none;
+}
+.content-format label:focus {
+  outline: none;
+}
+.content-format input[type=radio] {
+  display: none;
+}
+.content-format input[type=radio]:checked + label {
+  background-color: #009f77;
+}
+.content-format label {
+  padding: 10px;
+  width: 20%;
 }
 
 /*# sourceMappingURL=style.css.map */

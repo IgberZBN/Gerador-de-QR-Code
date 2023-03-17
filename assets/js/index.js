@@ -1,7 +1,8 @@
 class QrCodeGenerator {
-  constructor(form, img, input, erroContent) {
+  constructor(form, img, inputT, inputC) {
     this.form = document.querySelector(form);
-    this.inText = this.form.querySelector(input);
+    this.inText = this.form.querySelector(inputT);
+    this.inColor = this.form.querySelector(inputC);
     this.img = document.querySelector(img);
   }
 
@@ -18,21 +19,24 @@ class QrCodeGenerator {
     try {
       this.checkValue(text);
     } catch (e) {
-      erroGen.createErro(this.inText);
+      statusGen.statuErro(this.inText);
       throw `${e}`;
     }
 
-    const url = this.getUrl(text);
+    const color = this.inColor.value.split('#').pop();
+
+    const url = this.getUrl(text, color);
     this.setSrc(url);
   }
 
-  getUrl(text) {
-    const url = `https://api.qrserver.com/v1/create-qr-code/?data=${text}&size=150x150`;
+  getUrl(text, color) {
+    const url = `https://api.qrserver.com/v1/create-qr-code/?data=${text}&color=${color}&size=150x150`;
     return url;
   }
 
   setSrc(url) {
     this.img.src = url;
+    statusGen.statusSucces(this.inText);
   }
 
   checkValue(text) {
@@ -49,23 +53,60 @@ class QrCodeGenerator {
   }
 }
 
-class ErroGenerator {
-  constructor(content) {
-    this.erroContent = document.querySelector(content);
+class StatusGenerator {
+  constructor(erro) {
+    this.erroContent = document.querySelector(erro);
   }
 
-  createErro(inText) {
-    inText.classList.add('erro');
-    this.erroContent.classList.remove('d-n');
+  statuErro(input) {
+    input.classList.add('erro');
+    this.erroContent.classList.add('erro');
+    this.timerRemove(input);
+  }
 
+  statusSucces(input) {
+    input.classList.add('succes');
+    this.timerRemove(input);
+  }
+
+  timerRemove(input) {
     setTimeout(() => {
-      inText.classList.remove('erro');
-      this.erroContent.classList.add('d-n');
+      input.classList.remove('erro', 'succes');
+      this.erroContent.classList.remove('erro');
     }, 3000);
   }
 }
 
-const qrCodeGen = new QrCodeGenerator('.form', 'img', '.inText');
+class DropDownMenu {
+  constructor(btn, menu) {
+    this.btn = document.querySelector(btn);
+    this.menu = document.querySelector(menu);
 
-const erroGen = new ErroGenerator('.erro-content');
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  addClickEvent() {
+    this.btn.addEventListener('click', this.handleClick);
+  }
+
+  handleClick() {
+    this.btn.classList.toggle('active');
+    this.menu.classList.toggle('active');
+  }
+
+  init() {
+    if (this.btn && this.menu) {
+      this.addClickEvent();
+    }
+    return this;
+  }
+}
+
+// declarando objetos
+const qrCodeGen = new QrCodeGenerator('.form', 'img', '#inText', '#inColor');
+const statusGen = new StatusGenerator('.content-erro');
+const dropDown = new DropDownMenu('.dropdownToggle', '.dropdown');
+
+// Iniciando qrCode
 qrCodeGen.init();
+dropDown.init();

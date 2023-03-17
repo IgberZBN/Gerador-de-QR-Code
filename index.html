@@ -10,16 +10,44 @@
 </head>
 
 <body>
-  <div class="p-1 t-center br d-n erro-content">
-    <p>Insira um valor valido</p>
+  <div class="p-1 t-center br d-n content-erro">
+    <p>Insira um valor valido!</p>
   </div>
-  <main class="box d-f p-1 br content">
+  <main class="box d-f p-1 br content-qr">
     <form class="mb-1 mr-1 ml-1 t-center content-form form">
-      <input class="mb-1 t-center box input inText" id="inQr" type="text" placeholder="Coloque seu link ou texto aqui"
+      <input class="mb-1 t-center box input inText" id="inText" type="text" placeholder="Coloque seu link ou texto aqui"
         autofocus autocomplete="off" spellcheck="false">
+      <button class="btn dropdownToggle" type="button">Mais opcoes</button>
+      <div class="dropdown-content">
+        <div class="box mb-1 p-1 d-f dropdown">
+          <div class="mb-1 content-color">
+            <label for="inColor">Cor:</label>
+            <input class="box inColor" id="inColor" value="#ffffff" type="color">
+          </div>
+          <div class="mb-1 t-center d-f content-size">
+            <label for="inAltura">Altura:</label>
+            <label for="inLargura">Largura:</label>
+            <input class="box inSize" id="inAltura" type="number" value="150">
+            <p>X</p>
+            <input class="box inSize" id="inLargura" type="number" value="150">
+          </div>
+          <div class="content-format">
+            <input class="inFormat" id="png" name="format" type="radio" checked>
+            <label for="png">png</label>
+            <input class="inFormat" id="jpeg" name="format" type="radio">
+            <label for="jpeg">jpeg</label>
+            <input class="inFormat" id="jpg" name="format" type="radio">
+            <label for="jpg">jpg</label>
+            <input class="inFormat" id="gif" name="format" type="radio">
+            <label for="gif">gif</label>
+            <input class="inFormat" id="svg" name="format" type="radio">
+            <label for="svg">svg</label>
+          </div>
+        </div>
+      </div>
       <button class="mb-1 box btn" id="btnQr" type="submit">Gerar QR code</button>
     </form>
-    <div class="content-qrImage">
+    <div class="qrImage">
       <img class="img" src="" alt="">
     </div>
   </main>
