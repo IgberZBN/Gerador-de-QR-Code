@@ -149,6 +149,10 @@ body {
 .content-color .inColor:focus {
   outline: none;
 }
+.content-color .inColor::-webkit-color-swatch {
+  border: none;
+  border-radius: 1em;
+}
 
 .content-size {
   justify-content: space-between;

@@ -1,8 +1,9 @@
 class QrCodeGenerator {
-  constructor(form, img, inputT, inputC) {
+  constructor(form, img, inputT, inputC, inputS) {
     this.form = document.querySelector(form);
     this.inText = this.form.querySelector(inputT);
     this.inColor = this.form.querySelector(inputC);
+    this.inSize = this.form.querySelector(inputS);
     this.img = document.querySelector(img);
   }
 
@@ -24,13 +25,16 @@ class QrCodeGenerator {
     }
 
     const color = this.inColor.value.split('#').pop();
-
-    const url = this.getUrl(text, color);
+    const size = this.inSize.value;
+    const format = this.form.querySelector(
+      'input[name="format"]:checked'
+    ).value;
+    const url = this.getUrl(text, color, size, format);
     this.setSrc(url);
   }
 
-  getUrl(text, color) {
-    const url = `https://api.qrserver.com/v1/create-qr-code/?data=${text}&color=${color}&size=150x150`;
+  getUrl(text, color, size, format) {
+    const url = `https://api.qrserver.com/v1/create-qr-code/?data=${text}&color=${color}&size=${size}x${size}&format=${format}`;
     return url;
   }
 
@@ -103,7 +107,13 @@ class DropDownMenu {
 }
 
 // declarando objetos
-const qrCodeGen = new QrCodeGenerator('.form', 'img', '#inText', '#inColor');
+const qrCodeGen = new QrCodeGenerator(
+  '.form',
+  'img',
+  '#inText',
+  '#inColor',
+  '#inSize'
+);
 const statusGen = new StatusGenerator('.content-erro');
 const dropDown = new DropDownMenu('.dropdownToggle', '.dropdown');
 
