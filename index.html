@@ -1,54 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/style/css/style.css">
-  <title>Gerador de QR code</title>
+  <title>Gerador de Qr Code</title>
 </head>
 
 <body>
-  <div class="p-1 t-center br d-n content-erro">
-    <p>Insira um valor valido!</p>
-  </div>
-  <main class="box d-f p-1 br content-qr">
-    <form class="mb-1 mr-1 ml-1 t-center content-form form">
-      <input class="mb-1 t-center box input inText" id="inText" type="text" placeholder="Coloque seu link ou texto aqui"
-        autofocus autocomplete="off" spellcheck="false">
-      <button class="btn dropdownToggle" type="button">Mais opcoes</button>
+  <main class="box p-1 d-f t-center">
+    <form class="content-form box mx-5">
+      <input class="input my-1 box t-center" id="inText" type="text" autofocus autocomplete="off" spellcheck="false"
+        placeholder="Coloque seu link ou texto aqui">
+      <button class="btn m-center d-b" type="button" data-js-toggle="dropdown">
+        <i class="fa-solid fa-gear mx-5"></i><span class="centralize d-ib">Mais opções</span>
+      </button>
+      <button class="btn spinner-content my-1 m-center d-b">
+        <i class="spinner fa-solid fa-circle-notch"></i>
+      </button>
       <div class="dropdown-content">
-        <div class="box mb-1 p-1 d-f dropdown">
-          <div class="mb-1 content-color">
-            <label for="inColor">Cor:</label>
-            <input class="box inColor" id="inColor" value="#ffffff" type="color">
+        <div class="dropdown m-center p-1 box">
+          <div class="content-color mb-1">
+            <label class="my-5 d-b" for="inColor">
+              <i class="fa-solid fa-palette mx-5"></i><span class="centralize d-ib">Cor:</span>
+            </label>
+            <input class="input box " id="inColor" type="color">
           </div>
-          <div class="mb-1 t-center d-f content-size">
-            <label for="inSize">Tamanho:</label>
-            <input class="box inSize" id="inSize" type="number" value="150">
+          <div class="content-size mb-1">
+            <label class="my-5 d-b" for="inSize">
+              <i class="fa-solid fa-up-right-and-down-left-from-center mx-5"></i>
+              <span class="centralize d-ib">Tamanho(px):</span>
+            </label>
+            <input class="input t-center box " id="inSize" type="number" value="150">
           </div>
-          <div class="content-format">
-            <input class="inFormat" id="png" name="format" value="png" type="radio" checked>
-            <label for="png">png</label>
-            <input class="inFormat" id="jpeg" name="format" value="jpeg" type="radio">
-            <label for="jpeg">jpeg</label>
-            <input class="inFormat" id="jpg" name="format" value="jpg" type="radio">
-            <label for="jpg">jpg</label>
-            <input class="inFormat" id="gif" name="format" value="gif" type="radio">
-            <label for="gif">gif</label>
-            <input class="inFormat" id="svg" name="format" value="gif" type="radio">
-            <label for="svg">svg</label>
+          <div class="content-format d-f mb-1">
+            <p class="my-5 d-b"><i class="fa-solid fa-file mx-5"></i><span class="centralize d-ib">Formato:</span></p>
+            <input class="input box " id="png" name="format" value="png" type="radio" checked>
+            <label class="my-5 box" for="png">PNG</label>
+            <input class="input box " id="jpg" name="format" value="jpg" type="radio">
+            <label class="my-5 box" for="jpg">JPG</label>
+            <input class="input box " id="gif" name="format" value="gif" type="radio">
+            <label class="my-5 box" for="gif">GIF</label>
+            <input class="input box " id="svg" name="format" value="svg" type="radio">
+            <label class="my-5 box" for="svg">SVG</label>
           </div>
         </div>
       </div>
-      <button class="mb-1 box btn" id="btnQr" type="submit">Gerar QR code</button>
+      <button class="btn my-1 m-center d-b" type="submit">
+        <i class="fa-solid fa-qrcode mx-5"></i><span class="centralize d-ib">Gerar Qr Code</span>
+      </button>
     </form>
-    <div class="qrImage">
-      <img class="img" src="" alt="">
-    </div>
+    <!-- <picture class="content-img box d-f mx-1">
+    </picture> -->
   </main>
-  <script src="assets/js/index.js"></script>
+  <!-- ! font awesome -->
+  <script src="https://kit.fontawesome.com/38c37ae53b.js" crossorigin="anonymous"></script>
+  <!-- ! my script -->
+  <script type="module" src="assets/js/index.js"></script>
 </body>
 
 </html>
