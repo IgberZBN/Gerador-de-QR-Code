@@ -1,7 +1,6 @@
 # Gerador de QR Code
 
-Sobre o projeto
-Este é o meu primeiro projeto utilizando uma API, mais especificamente a [QR Code API](https://goqr.me/de/api/)., desenvolvido com JavaScript.
+Sobre o projeto, este é o meu primeiro projeto utilizando uma API, mais especificamente a [QR Code API](https://goqr.me/de/api/), desenvolvido com JavaScript.
 
 ![Imagem do projeto](/assets/img/print_do_projeto.png)
 ![Imagem do projeto responsivo](/assets/img/print_do_projeto_responsivel.jpg)
